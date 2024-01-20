@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cerrarModal(destino)">Cancelar</ion-button>
+    </ion-buttons>
+    <ion-title>Valor ida y vuelta</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirmar()">Confirmar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <label id="monto">Valor del Vuelo </label>
+    <ion-input [(ngModel)]="nuevoValor" type="number"></ion-input>
+        <ion-button (click)="agregarValor()">Agregar Valor </ion-button>
+        <div *ngFor="let v of valor">Valor: {{ v | currency }}</div>
+  </ion-item>
+
+  <ion-item>
+    <label id="moneda-label">Moneda : </label>
+    <ion-select [(ngModel)]="formatoMoneda" aria-labelledby="moneda-label">
+      <ion-select-option value="CLP">Peso chileno</ion-select-option>
+      <ion-select-option value="USD">Dólar estadounidense</ion-select-option>
+      <ion-select-option value="EUR">Euro</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-buttons slot="end">
+    <ion-button (click)="confirmar()" [strong]="true">Confirmar</ion-button>
+  </ion-buttons>
+</ion-content>
